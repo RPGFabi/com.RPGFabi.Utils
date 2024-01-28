@@ -1,7 +1,7 @@
 {
     "name": "com.rpgfabi.utils",
     "version": "1.0.0",
-    "displayName": "RPGFabis Utilities",
+    "displayName": "RPGFabi's Utilities",
     "description": "A collection of stuff with multiple use",
     "unity": "2019.1",
     "unityRelease": "0b5",
