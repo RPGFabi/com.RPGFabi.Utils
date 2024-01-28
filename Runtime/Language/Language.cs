@@ -8,10 +8,8 @@ namespace RPGFabi_Utils.Language
     {
         public string languageName;
         public string[] translations;
-        //public string imageToken;
 
         public int GetLookupCount() => translations.Length;
-        //public string GetImageToken() => imageToken;
 
     #if UNITY_EDITOR
         public void AddKey(string key)
@@ -43,7 +41,6 @@ namespace RPGFabi_Utils.Language
             int maxCount = values.Length;
 
             languageName = values[0].Replace("\r","");
-            //imageToken = values[1].Replace("\r", "");
 
             translations = new string[maxCount - 2];
             for (int i = 2; i < maxCount; i++)
