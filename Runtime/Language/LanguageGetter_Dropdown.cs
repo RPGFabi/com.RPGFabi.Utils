@@ -1,10 +1,9 @@
-﻿using Languages;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-namespace Languages
+namespace RPGFabi_Utils.Language
 {
     public class LanguageGetter_Dropdown : MonoBehaviour
     {
