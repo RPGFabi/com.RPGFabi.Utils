@@ -20,7 +20,7 @@ namespace RPGFabi_Utils.IO
             return StandaloneFileBrowser.SaveFilePanel(save?"Save File":"Open File", "", "", "");
         }
 
-        public static string GetPathFromFileBrowser(bool save = false, ExtensionFilter[] filter)
+        public static string GetPathFromFileBrowser(ExtensionFilter[] filter, bool save = false)
         {
             return StandaloneFileBrowser.OpenFilePanel(save ? "Save File" : "Open File", "", filter, false)[0];
         }
@@ -31,7 +31,7 @@ namespace RPGFabi_Utils.IO
                 new ExtensionFilter("Image Files", "png", "jpg", "jpeg")
             };
 
-            return GetPathFromFileBrowser(save, extensions);
+            return GetPathFromFileBrowser(extensions, save);
         }
 
         public static string GetPathForTextFiles(bool save = false)
@@ -40,7 +40,7 @@ namespace RPGFabi_Utils.IO
                 new ExtensionFilter("Text File", "txt", "json")
             };
 
-            return GetPathFromFileBrowser(save, extensions);
+            return GetPathFromFileBrowser(extensions, save);
         }
         #endregion
 
@@ -51,14 +51,14 @@ namespace RPGFabi_Utils.IO
         }
         public static void WriteFile(string data, string path)
         {
-            System.IO.StreamWriter writer = new System.IO.StreamWriter(path);
+            System.IO.StreamWriter writer = new StreamWriter(path);
             writer.Write(data);
             writer.Close();
         }
 
         public static string ReadFileAsString(string path)
         {
-            System.IO.StreamReader reader = new System.IO.StreamReader(path);
+            System.IO.StreamReader reader = new StreamReader(path);
             string data = reader.ReadToEnd();
             reader.Close();
             return data;
@@ -66,7 +66,7 @@ namespace RPGFabi_Utils.IO
 
         public static byte[] ReadFileAsBytes(string path)
         {
-            return System.IO.File.ReadAllBytes(path);
+            return File.ReadAllBytes(path);
         }
 
         public static void CopyFilesToPath(List<string> paths, string targetPath)
@@ -98,8 +98,6 @@ namespace RPGFabi_Utils.IO
             T _data = JsonUtility.FromJson<T>(data);
             return _data;
         }
-
         #endregion
-
     }
 }
