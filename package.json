@@ -2,7 +2,7 @@
     "name": "com.rpgfabi.utils",
     "version": "1.0.0",
     "displayName": "RPGFabi's Utilities",
-    "description": "A collection of stuff with multiple use. Contains:\n- IO-Stuff\n- Languagehandling\n- 3D-World-Stuff",
+    "description": "A collection of stuff with multiple use. Contains:\n- IO-Stuff\n- Languagehandling\n- 3D-World-Stuff\n- Grids",
     "unity": "2019.1",
     "unityRelease": "0b5",
     "documentationUrl": "",

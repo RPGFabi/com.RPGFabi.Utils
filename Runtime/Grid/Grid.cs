@@ -132,8 +132,8 @@ namespace RPGFabi_Utils.Grid
         public Vector2Int GetCellIndexFromWorld(Vector3 pos)
         {
             return new Vector2Int(
-                Mathf.FloorToInt((pos.x - origin.x) / cellSize),
-                Mathf.FloorToInt((pos.z - origin.z) / cellSize)
+                Mathf.RoundToInt((pos.x - origin.x) / cellSize),
+                Mathf.RoundToInt((pos.z - origin.z) / cellSize)
             );
         }
 
