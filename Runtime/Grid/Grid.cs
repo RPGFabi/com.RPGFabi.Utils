@@ -13,6 +13,8 @@ namespace RPGFabi_Utils.Grid
         public float cellSize { get; private set; }
         public Vector3 origin { get; private set; }
         Dictionary<Vector2Int, GridObject> grid = new Dictionary<Vector2Int, GridObject>();
+
+        int displayTextSize = 20;
         Dictionary<Vector2Int, TextMesh> debugTexts = new Dictionary<Vector2Int, TextMesh>();
 
         public GridXY(float _cellSize, Vector3 _origin, Dictionary<Vector2Int,GridObject> defaultPositions = null)
@@ -45,6 +47,11 @@ namespace RPGFabi_Utils.Grid
             showDebug = b;
         }
 
+        public void SetDebugTextSize(int i)
+        {
+            displayTextSize = i;
+        }
+
         public void AddCellToGrid(Vector2Int pos, GridObject obj)
         {
             if(grid.ContainsKey(pos))
@@ -70,7 +77,7 @@ namespace RPGFabi_Utils.Grid
                     center,
                     Quaternion.Euler(90,0,0),
                     WorldText.GetDefaultFont(),
-                    20,
+                    displayTextSize,
                     Color.white,
                     TextAnchor.MiddleCenter,
                     TextAlignment.Center
