@@ -130,6 +130,15 @@ namespace RPGFabi_Utils.Grid
             );
         }
 
+        public bool CheckIfCellExists(Vector2Int index)
+        {
+            if (grid.ContainsKey(index))
+            {
+                return true;
+            }
+            return false;
+        }
+
         public GridObject GetCellObject(Vector2Int index)
         {
             if(grid.ContainsKey(index))
