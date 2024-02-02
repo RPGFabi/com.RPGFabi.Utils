@@ -42,6 +42,8 @@ namespace RPGFabi_Utils.Grid
 
         }
 
+        public int GetCellCount() => grid.Count;
+
         public void SetDebug(bool b)
         {
             showDebug = b;
