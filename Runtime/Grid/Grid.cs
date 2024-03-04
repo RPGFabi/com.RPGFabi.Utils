@@ -126,7 +126,7 @@ namespace RPGFabi_Utils.Grid
             }
         }
 
-
+ 
         public Vector3 GetWorldPositionFromCell(Vector2Int index)
         {
             return origin + new Vector3(index.x,0,index.y)*cellSize;

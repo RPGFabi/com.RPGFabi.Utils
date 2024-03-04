@@ -172,6 +172,19 @@ namespace RPGFabi_Utils.Language
             return key;
         }
 
+        public string GetTranslationByKey(string key, object[] variables)
+        {
+            string text = GetTranslationByKey(key);
+
+            int index = 0;
+            while (variables.Length >= index + 1 && text.Contains("{" + index + "}"))
+            {
+                text = text.Replace("{" + index + "}", variables[index].ToString());
+                index++;
+            }
+            return text;
+        }
+
         public string GetTranslationByKeyAndLanguageIndex(int languageIndex, string key)
         {
             if (_languages == null || _languages.GetCount() <= languageIndex) return key;
