@@ -10,7 +10,7 @@ namespace RPGFabi_Utils.Grid
         public void InitGridObject(Vector2Int[] indexes) => gridIndexes = indexes;
         public Vector2Int[] GetOccupiedIndexes() => gridIndexes;
 
-        internal virtual void OnGridObjectDeleted() { }
+        protected virtual void OnGridObjectDeleted() { }
 
         public void DeleteGridObject()
         {
