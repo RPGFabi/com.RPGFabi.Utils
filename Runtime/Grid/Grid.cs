@@ -46,6 +46,8 @@ namespace RPGFabi_Utils.Grid
         {
             _GridObject obj = GetCellObject(index);
 
+            if (obj == null) return;
+
             // Remove from all Cells
             foreach (Vector2Int obj_Index in obj.GetOccupiedIndexes())
             {
