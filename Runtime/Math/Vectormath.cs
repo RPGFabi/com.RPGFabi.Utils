@@ -15,7 +15,28 @@ namespace RPGFabi_Utils.Math
         /// <returns></returns>
         public static Vector3 CalculateRayIntersectionWithXZPlane(Vector3 rayOrigin, Vector3 rayDirection, float offset = 0)
         {
-            return CalculateRayIntersectionWithPlane(rayOrigin, rayDirection, Vector3.up, offset);
+            // Ensure the ray direction is normalized
+            rayDirection.Normalize();
+
+            // The XZ plane is defined as y = 0, so its normal is (0, 1, 0)
+            Vector3 planeNormal = Vector3.up; // Equivalent to new Vector3(0, 1, 0)
+
+            // Check if the ray is parallel to the plane (no intersection)
+            float denominator = Vector3.Dot(planeNormal, rayDirection);
+            if (Mathf.Approximately(denominator, 0))
+            {
+                // Ray is parallel to the XZ plane, no intersection
+                Debug.LogWarning("Ray is parallel to the XZ plane and does not intersect");
+                return Vector3.zero; // Return a default value or handle this case as needed
+            }
+
+            // Calculate the distance from the ray origin to the intersection point on the XZ plane
+            float distance = -Vector3.Dot(planeNormal, rayOrigin) / denominator;
+
+            // Calculate the intersection point using the distance along the ray's direction
+            Vector3 intersectionPoint = rayOrigin + new Vector3(0, offset, 0) + rayDirection * distance;
+
+            return intersectionPoint;
         }
 
         /// <summary>
@@ -27,7 +48,28 @@ namespace RPGFabi_Utils.Math
         /// <returns></returns>
         public static Vector3 CalculateRayIntersectionWithXYPlane(Vector3 rayOrigin, Vector3 rayDirection, float offset = 0)
         {
-            return CalculateRayIntersectionWithPlane(rayOrigin, rayDirection, Vector3.forward, offset);
+            // Ensure the ray direction is normalized
+            rayDirection.Normalize();
+
+            // The XY plane is defined as z = 0, so its normal is (0, 0, 1)
+            Vector3 planeNormal = Vector3.forward; 
+
+            // Check if the ray is parallel to the plane (no intersection)
+            float denominator = Vector3.Dot(planeNormal, rayDirection);
+            if (Mathf.Approximately(denominator, 0))
+            {
+                // Ray is parallel to the XZ plane, no intersection
+                Debug.LogWarning("Ray is parallel to the XZ plane and does not intersect");
+                return Vector3.zero; // Return a default value or handle this case as needed
+            }
+
+            // Calculate the distance from the ray origin to the intersection point on the XZ plane
+            float distance = -Vector3.Dot(planeNormal, rayOrigin) / denominator;
+
+            // Calculate the intersection point using the distance along the ray's direction
+            Vector3 intersectionPoint = rayOrigin + new Vector3(0, 0, offset)+ rayDirection * distance;
+
+            return intersectionPoint;
         }
 
         /// <summary>
@@ -39,45 +81,30 @@ namespace RPGFabi_Utils.Math
         /// <returns></returns>
         public static Vector3 CalculateRayIntersectionWithYZPlane(Vector3 rayOrigin, Vector3 rayDirection, float offset = 0)
         {
-            return CalculateRayIntersectionWithPlane(rayOrigin, rayDirection, Vector3.right, offset);
-        }
-
-        /// <summary>
-        /// Returns the IntersectionPoint of an Ray with the givven Plane
-        /// </summary>
-        /// <param name="rayOrigin"></param>
-        /// <param name="rayDirection"></param>
-        /// <param name="planeNormal">Normal of the Plane in Worldspace</param>
-        /// <param name="offset">Distance between the Plane (at origin) and the intersecting Plane</param>
-        /// <returns></returns>
-        public static Vector3 CalculateRayIntersectionWithPlane(Vector3 rayOrigin, Vector3 rayDirection, Vector3 planeNormal, float offset)
-        {
             // Ensure the ray direction is normalized
             rayDirection.Normalize();
-            
-            // Calculate the distance from the plane to the origin of the ray
-            float distanceToPlane = Vector3.Dot(planeNormal, rayOrigin);
-            
-            // Adjust the distance by the offset
-            distanceToPlane += offset;
-            
+
+            // The YZ plane is defined as x = 0, so its normal is (1, 0, 0)
+            Vector3 planeNormal = Vector3.right; // Equivalent to new Vector3(1, 0, 0)
+
             // Check if the ray is parallel to the plane (no intersection)
             float denominator = Vector3.Dot(planeNormal, rayDirection);
             if (Mathf.Approximately(denominator, 0))
             {
-                // Ray is parallel to the plane, no intersection
-                Debug.LogWarning("Ray is parallel to the plane and does not intersect");
+                // Ray is parallel to the XZ plane, no intersection
+                Debug.LogWarning("Ray is parallel to the XZ plane and does not intersect");
                 return Vector3.zero; // Return a default value or handle this case as needed
             }
-            
-            // Calculate the distance from the ray origin to the intersection point on the plane
-            float distance = (distanceToPlane - Vector3.Dot(planeNormal, rayOrigin)) / denominator;
-            
+
+            // Calculate the distance from the ray origin to the intersection point on the XZ plane
+            float distance = -Vector3.Dot(planeNormal, rayOrigin) / denominator;
+
             // Calculate the intersection point using the distance along the ray's direction
-            Vector3 intersectionPoint = rayOrigin + rayDirection * distance;
-            
-            return intersectionPoint;            
+            Vector3 intersectionPoint = rayOrigin + new Vector3(offset, 0, 0) + rayDirection * distance;
+
+            return intersectionPoint;
         }
+
 
         public static Vector3 FloorVector(Vector3 a)
         {
