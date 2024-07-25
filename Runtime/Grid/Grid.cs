@@ -130,6 +130,19 @@ namespace RPGFabi_Utils.Grid
         #endregion
 
         #region CellHandling
+        public _GridObject[] GetAllGridObjects(){
+            List<_GridObject> objects = new List<_GridObject>();
+
+            foreach (var index in grid)
+            {
+                if(!objects.Contains(index.Value)){
+                    objects.Add(index.Value);
+                }
+            }
+            return objects.ToArray();
+
+        }
+
         public void AddCellToGrid(Vector2Int pos, _GridObject obj)
         {
             if(grid.ContainsKey(pos))

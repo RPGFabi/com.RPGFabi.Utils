@@ -1,23 +1,21 @@
 {
-    "name": "com.rpgfabi.utils",
-    "version": "1.0.0",
-    "displayName": "RPGFabi's Utilities",
-    "description": "A collection of stuff with multiple use. Contains:\n- IO-Stuff\n- Languagehandling\n- 3D-World-Stuff\n- Grids",
-    "unity": "2019.1",
-    "unityRelease": "0b5",
-    "documentationUrl": "",
-    "changelogUrl": "",
-    "licensesUrl": "",
-    "dependencies": {
-      "com.unity.textmeshpro": "3.0.6"
-   },
-   "keywords": [
-    ],
-    "author": {
-      "name": "RPGFabi",
-      "email": "fabian@hoelzle-wangen.de",
-      "url": ""
-    },
-    "samples":[
-    ]
-  }
+  "name": "com.rpgfabi.utils",
+  "version": "1.0.1",
+  "displayName": "RPGFabi's Utilities",
+  "description": "A collection of stuff with multiple use. Contains:\n- IO-Stuff\n- Languagehandling\n- 3D-World-Stuff\n- Grids",
+  "unity": "2019.1",
+  "unityRelease": "0b5",
+  "documentationUrl": "",
+  "changelogUrl": "",
+  "licensesUrl": "",
+  "dependencies": {
+    "com.unity.textmeshpro": "3.0.6"
+  },
+  "keywords": [],
+  "author": {
+    "name": "RPGFabi",
+    "email": "fabian@hoelzle-wangen.de",
+    "url": ""
+  },
+  "samples": []
+}
